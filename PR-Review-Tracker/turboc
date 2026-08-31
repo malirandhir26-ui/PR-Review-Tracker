@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Turbo C++ Modern IDE Launcher
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec python3 "$SCRIPT_DIR/turboc.py" "$@"

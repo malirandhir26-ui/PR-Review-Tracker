@@ -1,0 +1,70 @@
+body {
+    background-color: #f6f8fa;
+}
+
+.stat-card {
+    border: 0;
+    border-radius: 0.75rem;
+}
+
+.stat-number {
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.card {
+    border: 0;
+    border-radius: 0.75rem;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eef1f4;
+    border-radius: 0.75rem 0.75rem 0 0 !important;
+}
+
+.navbar-brand {
+    letter-spacing: 0.3px;
+}
+
+/* Sortable table headers */
+th.sortable {
+    user-select: none;
+    white-space: nowrap;
+}
+th.sortable::after {
+    content: " ⇅";
+    font-size: 0.7em;
+    opacity: 0.45;
+}
+th.sortable:hover::after {
+    opacity: 1;
+}
+
+/* Dark mode tweaks */
+html[data-bs-theme="dark"] .stat-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+html[data-bs-theme="dark"] .table-light {
+    background-color: #2b3035;
+}
+html[data-bs-theme="dark"] .bg-light {
+    background-color: #212529 !important;
+}
+
+/* Print styles for PDF report page */
+@media print {
+    body { background: #fff !important; }
+}

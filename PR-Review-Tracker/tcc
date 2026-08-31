@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Turbo C Command Line Compiler Wrapper (tcc / tc)
+# Usage: ./tcc main.c -o main
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+COMPAT_INC="$SCRIPT_DIR/turboc_compat"
+
+if [ $# -eq 0 ]; then
+    echo "Turbo C++ Modern Compiler Wrapper"
+    echo "Usage: tc <source.c/.cpp> [-o output_name] [extra compiler flags]"
+    exit 1
+fi
+
+# Detect compiler
+SRC="$1"
+EXT="${SRC##*.}"
+COMPILER="gcc"
+if [ "$EXT" = "cpp" ] || [ "$EXT" = "cc" ] || [ "$EXT" = "cxx" ]; then
+    COMPILER="g++"
+fi
+
+# Run compilation with compatibility include path
+exec "$COMPILER" "$@" -I"$COMPAT_INC" -Wall -Wextra
